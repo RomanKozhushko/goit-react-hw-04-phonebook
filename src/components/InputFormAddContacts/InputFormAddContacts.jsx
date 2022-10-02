@@ -1,22 +1,17 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { Formik, Form, } from 'formik';
 import { InputItem } from './InputFormAddContacts.styled';
 import PropTypes from 'prop-types';
 
 
-export class InputForm extends Component {
-    state = {
-        name: "",
-        number: "",
-    };
-    onSubmit = (values, action) => {
+export function InputForm() {
+    const { name, number } = useState();
+    const onSubmit = (values, action) => {
         this.props.submitHandle(values);
         action.resetForm();
-    }
-    render() {
-        const { name, number } = this.state;
-            return (
-            <Formik initialValues={{ name, number }} onSubmit={this.onSubmit}>
+    } 
+        return (
+            <Formik initialValues={{ name, number }} onSubmit={onSubmit}>
                 <Form><label>Name
                 <InputItem
                     type="text"
@@ -41,7 +36,7 @@ export class InputForm extends Component {
             </Formik>
         );
     }
-}
+
 
 InputForm.propTypes = {
   submitHandle: PropTypes.func,
