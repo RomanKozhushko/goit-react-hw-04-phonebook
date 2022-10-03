@@ -24,7 +24,7 @@ export function App() {
     const sameName = contacts.find(element => (element.name.toLowerCase() === data.name.toLowerCase()));
     // При спробі виконати таку дію виведи alert із попередженням.
     if (sameName)
-      return alert(sameName.name + " is already in contacts!");
+      return alert(sameName.name + " is already in contacts list!");
 
     //Присвоювання ID та запис у контакти!
     data.id = nanoid();
@@ -39,8 +39,7 @@ export function App() {
 
   // Видалення раніше збережених контактів
   const onDelete = (id) => {
-    setContacts(contacts => contacts.filter(
-      contact => contact.id !== id))
+    setContacts(contacts => contacts.filter(contact => contact.id !== id))
   }
 
   const normalizeFilter = filter.toLowerCase();
