@@ -1,27 +1,27 @@
 // import { useState } from 'react';
-import { Formik, Form, } from 'formik';
+import { Formik, Form } from 'formik';
 import { InputItem } from './InputFormAddContacts.styled';
 import PropTypes from 'prop-types';
 
 export const InputForm = ({ onSubmit }) => {
-//   const [name, setName] = useState('');
-//   const [number, setNumber] = useState('');
+  //   const [name, setName] = useState('');
+  //   const [number, setNumber] = useState('');
 
-//   const handleChange = event => {
-//     const { name, value } = event.target;
-//     switch (name) {
-//       case 'name':
-//         setName(value);
-//         break;
-//       case 'number':
-//         setNumber(value);
-//         break;
-//       default:
-//         return;
-//     }
-//   };
+  //   const handleChange = event => {
+  //     const { name, value } = event.target;
+  //     switch (name) {
+  //       case 'name':
+  //         setName(value);
+  //         break;
+  //       case 'number':
+  //         setNumber(value);
+  //         break;
+  //       default:
+  //         return;
+  //     }
+  //   };
 
-  const handleSubmit = async (values, action)  => {
+  const handleSubmit = async (values, action) => {
     console.log(values);
     onSubmit(values);
     action.resetForm();
@@ -29,7 +29,7 @@ export const InputForm = ({ onSubmit }) => {
     // setNumber('');
   };
   return (
-    <Formik  initialValues={{name:'', number:''}} onSubmit={handleSubmit}>
+    <Formik initialValues={{ name: '', number: '' }} onSubmit={handleSubmit}>
       <Form>
         <label>
           Name
