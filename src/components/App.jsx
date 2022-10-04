@@ -24,11 +24,13 @@ export function App() {
     const sameName = contacts.find(element => (element.name.toLowerCase() === data.name.toLowerCase()));
     // При спробі виконати таку дію виведи alert із попередженням.
     if (sameName)
+      
       return alert(sameName.name + " is already in contacts list!");
 
     //Присвоювання ID та запис у контакти!
     data.id = nanoid();
     setContacts(contacts => [data, ...contacts])
+    
   }
 
   // Пошук необхідного контакту
@@ -44,12 +46,12 @@ export function App() {
 
   const normalizeFilter = filter.toLowerCase();
   const filteredContacts = contacts.filter(contact => (contact.name.toLowerCase().includes(normalizeFilter)));
- 
+ console.log(contacts)
     return (
       <PhonebookBox>
         <InputFormBox>
           <h1>Phonebook</h1>
-          <InputForm submitHandle={submitHandle} />
+          <InputForm onSubmit={submitHandle} />
         </InputFormBox>
         <ContactListBox>
           <h2>Contact List</h2>
